@@ -1,0 +1,21 @@
+{
+  "name": "tains2384.github.io",
+  "version": "1.0.0",
+  "description": "[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.me/daattali/20) [![Gem Version](https://badge.fury.io/rb/beautiful-jekyll-theme.svg)](https://badge.fury.io/rb/beautiful-jekyll-theme)",
+  "main": "index.js",
+  "scripts": {
+    "build": "jekyll build",
+    "dev": "jekyll serve",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tains2384/tains2384.github.io.git"
+  },
+  "author": "tains",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tains2384/tains2384.github.io/issues"
+  },
+  "homepage": "https://github.com/tains2384/tains2384.github.io#readme"
+}
