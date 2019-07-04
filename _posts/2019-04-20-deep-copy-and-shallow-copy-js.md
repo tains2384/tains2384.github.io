@@ -1,13 +1,16 @@
 ---
 layout: post
-title: Deep copy và swallow copy trong Javascript
-tags: [deep copy, swallow copy, javascript]
+title: Deep copy và shallow copy trong Javascript
+tags: [deep copy, shallow copy, javascript]
 comments: true
 ---
 
 <!-- Content here -->
-Phân biệt deep copy và swallow copy trong Javascript
-![copy logo](/img/copy-160128_1280.png)
+Phân biệt deep copy và shallow copy trong Javascript
+<!-- ![copy logo](/img/copy-160128_1280.png) -->
+<div class="flex justify-content-center">
+  <img src="/img/copy-160128_1280.png" height="300">
+</div>
 
 ### jQuery
 ```javascript
