@@ -2,10 +2,10 @@
   display: flex;
 }
 
-.justify-content-center {
-  justify-content: center
+.justify-center {
+  justify-content: center;
 }
 
-.align-items-center {
-  align-items: center;
+.justify-space-around {
+  justify-content: space-around;
 }

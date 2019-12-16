@@ -9,7 +9,6 @@ comments: true
 Vài bước đơn giản để tạo github page bằng Jekyll.
 ![jekyll logo](/img/jekyll-logo.png)
 
-## Làm theo các bước sau
 Tạo tài khoản github và fork repository mẫu (ex: [beautiful-jekyll](https://github.com/daattali/beautiful-jekyll#readme)) với tên `<ten-tai-khoan>.github.io`.
 
 ### Run ở local
