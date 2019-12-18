@@ -4,7 +4,7 @@
   "description": "[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.me/daattali/20) [![Gem Version](https://badge.fury.io/rb/beautiful-jekyll-theme.svg)](https://badge.fury.io/rb/beautiful-jekyll-theme)",
   "main": "index.js",
   "scripts": {
-    "build": "jekyll build",
+    "build": "bundle exec jekyll build",
     "dev": "jekyll serve",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
