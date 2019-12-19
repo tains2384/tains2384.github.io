@@ -17,6 +17,10 @@ Chỉ cần chạy lệnh `sudo apt-get install nginx` . Sau khi cài đặt xon
 
 Webserver mới sẽ được cài đặt tại thư mục `/etc/nginx` 
 
+1. Start nginx `sudo systemctl start nginx`
+2. Stop nginx `sudo systemctl stop nginx`
+3. Restart nginx `sudo systemctl restart nginx`
+
 ## Cấu hình NGINX cho project NuxtJS
 
 `sudo vi /etc/nginx/sites-available/default` 
@@ -42,7 +46,6 @@ server {
 1. Tạo SSL certification trên [https://sslforfree.com](https://sslforfree.com), làm theo hướng dẫn để download được 3 file `ca_bundle.crt` , `certificate.crt` , `private.key` 
 2. Copy 3 file này lên server, đặt vào thư mục bất kì
 3. Chỉnh sửa lại file `sudo vi /etc/nginx/sites-available/default` 
-
 ``` sh
 server {
   listen 80 default_server;
@@ -53,13 +56,11 @@ server {
   ...
 }
 ```
-
-4. Restart nginx `sudo systemctl restart nginx` 
+4. Start nginx `sudo systemctl start nginx` hoặc restart nginx `sudo systemctl restart nginx` 
 
 ## Cấu hình access mặc định vào https (redirect port 80 to 443)
 
 1. Chỉnh sửa lại file `sudo vi /etc/nginx/sites-available/default` 
-
 ``` sh
 server {
   listen 80;
@@ -74,6 +75,5 @@ server {
   ssl_certificate_key <đường dẫn tới file private.key>;
 }
 ```
-
-2. Restart nginx `sudo systemctl restart nginx` 
+2. Start nginx `sudo systemctl start nginx` hoặc restart nginx `sudo systemctl restart nginx` 
 
