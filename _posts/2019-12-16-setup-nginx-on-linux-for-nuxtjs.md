@@ -58,9 +58,27 @@ server {
 ```
 4. Start nginx `sudo systemctl start nginx` hoặc restart nginx `sudo systemctl restart nginx` 
 
-## Cấu hình access mặc định vào https (redirect port 80 to 443)
+## Cấu hình SSL với NGINX (Valid khi debug facebook)
+1. Gộp 2 file `certificate.crt` và `ca_bundle.crt` thảnh một bằng lệnh `cat certificate.crt ca_bundle.crt > new_certificate.crt`
+**Lưu ý:** Trong file `new_certificate.crt` dòng `-----END CERTIFICATE----------BEGIN CERTIFICATE-----` phải tách thành 2 dòng
+```
+-----BEGIN CERTIFICATE-----
+xxx...xxx
+----END CERTIFICATE----------BEGIN CERTIFICATE-----
+yyy...yyy
+----END CERTIFICATE-----
 
-1. Chỉnh sửa lại file `sudo vi /etc/nginx/sites-available/default` 
+↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+
+-----BEGIN CERTIFICATE-----
+xxx...xxx
+----END CERTIFICATE-----
+-----BEGIN CERTIFICATE-----
+yyy...yyy
+----END CERTIFICATE-----
+
+```
+2. Thay đổi cấu hình nginx `sudo vi /etc/nginx/sites-available/default` 
 ``` sh
 server {
   listen 80;
@@ -69,6 +87,25 @@ server {
 }
 server {
   listen 80 default_server;
+  listen 443 ssl;
+  listen [::]:443 ssl;
+  ssl_certificate <đường dẫn tới file new_certificate.crt>; # Sửa từ certificate.crt → new_certificate.crt
+  ssl_certificate_key <đường dẫn tới file private.key>;
+}
+```
+3. Start nginx `sudo systemctl start nginx` hoặc restart nginx `sudo systemctl restart nginx` 
+
+## Cấu hình access mặc định vào https (redirect port 80 to 443)
+
+1. Chỉnh sửa lại file `sudo vi /etc/nginx/sites-available/default` 
+``` sh
+server {
+  listen 80 default_server;
+  listen [::]:80 default_server;
+  server_name _;
+  return 301 https://$host$request_uri;
+}
+server {
   listen 443 ssl;
   listen [::]:443 ssl;
   ssl_certificate <đường dẫn tới file certificate.crt>;
